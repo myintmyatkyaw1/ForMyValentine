@@ -1,13 +1,1164 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>TestingForFourTeen</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-</head>
-<body>
-  <app-root></app-root>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Special Anniversary</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #ff4d6d;
+            --secondary-color: #ff8fa3;
+            --accent-color: #ffb3c1;
+            --dark-color: #590d22;
+            --light-color: #fff0f3;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .cursive-font {
+            font-family: 'Dancing Script', cursive;
+        }
+
+        /* Login Page Styles */
+        #login-page {
+            height: 100vh;
+            background: linear-gradient(135deg, var(--primary-color), var(--light-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .login-container {
+            background-color: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 2.5rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            width: 90%;
+            max-width: 450px;
+            z-index: 10;
+            position: relative;
+        }
+
+        .login-title {
+            color: var(--dark-color);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 2.2rem;
+        }
+
+        .login-subtitle {
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .form-control {
+            border-radius: 50px;
+            padding: 0.85rem 1.2rem;
+            border: 2px solid var(--accent-color);
+            font-size: 1rem;
+            margin-bottom: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.25rem rgba(255, 77, 109, 0.25);
+            transform: translateY(-2px);
+        }
+
+        .btn-login {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            padding: 0.85rem;
+            color: white;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            margin-top: 0.5rem;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn-login:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
+
+        .date-inputs {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 1.5rem;
+        }
+
+        .date-inputs .form-group {
+            flex: 1;
+        }
+
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            transform: rotate(45deg);
+            opacity: 0.7;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        .heart:before, .heart:after {
+            content: '';
+            width: 20px;
+            height: 20px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart:before {
+            top: -10px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: -10px;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(45deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(45deg);
+            }
+        }/* Main Page Styles /
+        #main-page {
+            display: none;
+            background: linear-gradient(135deg, var(--light-color), var(--accent-color));
+            min-height: 100vh;
+        }
+
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+
+        .navbar-brand {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2rem;
+            color: var(--primary-color) !important;
+            font-weight: 700;
+        }
+
+        .hero-section {
+            padding: 6rem 0 4rem;
+            text-align: center;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ff4d6d" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,186.7C384,213,480,235,576,213.3C672,192,768,128,864,128C960,128,1056,192,1152,192C1248,192,1344,128,1392,96L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+            background-size: cover;
+        }
+
+        .anniversary-date {
+            font-size: 3.5rem;
+            color: var(--dark-color);
+            margin-bottom: 1rem;
+        }
+
+        .love-message {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 2.5rem;
+        }
+
+        .card-section {
+            padding: 4rem 0;
+        }
+
+        .love-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            padding: 2.5rem 2rem;
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: none;
+            height: 100%;
+        }
+
+        .love-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-icon {
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .card-title {
+            color: var(--dark-color);
+            font-weight: 600;
+            margin-bottom: 1.2rem;
+            font-size: 1.5rem;
+        }
+
+        .card-text {
+            color: #666;
+            line-height: 1.7;
+            font-size: 1.05rem;
+        }
+
+        / Memory Gallery Styles */
+        .memory-section {
+            padding: 4rem 0;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .gallery-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .gallery-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: white;
+            border: 2px solid var(--accent-color);
+            border-radius: 50px;
+            padding: 0.5rem 1.5rem;
+            color: var(--dark-color);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .memory-photo {
+            height: 250px;
+            border-radius: 15px;
+            display: flex;
+            align-items: flex-end;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            overflow: hidden;
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-photo:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 50%);
+            transition: all 0.3s ease;
+        }
+
+        .memory-photo:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .memory-photo:hover:before {
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%);
+        }
+
+        .photo-caption {
+            position: relative;
+            z-index: 2;
+            padding: 1.5rem;
+            color: white;
+            width: 100%;
+        }.photo-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .photo-date {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 3rem;
+        }
+
+        .btn-load-more {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn-load-more:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
+
+        .countdown-section {
+            padding: 4rem 0;
+            text-align: center;
+        }
+
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            flex-wrap: wrap;
+        }
+
+        .countdown-item {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            min-width: 120px;
+            transition: all 0.3s ease;
+        }
+
+        .countdown-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .countdown-value {
+            font-size: 2.8rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+        }
+
+        .countdown-label {
+            font-size: 1rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .footer {
+            background-color: var(--dark-color);
+            color: white;
+            padding: 2.5rem 0;
+            text-align: center;
+        }
+
+        .footer p {
+            margin: 0;
+        }
+
+        .floating-hearts {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+        }
+
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: var(--primary-color);
+            opacity: 0;
+            animation: floatUp 5s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Custom Modal Styles */
+        .custom-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            z-index: 10000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            max-width: 500px;
+            width: 90%;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+            text-align: center;
+            position: relative;
+            animation: modalAppear 0.4s ease-out;
+        }
+
+        @keyframes modalAppear {
+            0% {
+                opacity: 0;
+                transform: scale(0.8) translateY(-20px);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .modal-heart {
+            font-size: 3.5rem;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-family: 'Dancing Script', cursive;
+            color: var(--dark-color);
+            font-size: 2.2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-message {
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+
+        .btn-close-modal {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border: none;
+            border-radius: 50px;
+            padding: 0.8rem 2rem;
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.4);
+        }
+
+        .btn-close-modal:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.6);
+        }
+
+        /* Image Modal Styles /
+        .image-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10001;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem;
+        }
+
+        .image-modal-content {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .image-modal-info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .image-modal-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .image-modal-date {
+            font-size: 1rem;
+            opacity: 0.8;
+        }
+
+        .close-image-modal {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            z-index: 10002;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            z-index: 10002;
+            background: rgba(0,0,0,0.5);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-prev {
+            left: 30px;
+        }
+
+        .modal-next {
+            right: 30px;
+        }
+
+        / Responsive adjustments */
+        @media (max-width: 768px) {
+            .anniversary-date {
+                font-size: 2.5rem;
+            }
+
+            .love-message {
+                font-size: 1.4rem;
+            }
+
+            .countdown-container {
+                gap: 1rem;
+            }
+
+            .countdown-item {
+                min-width: 100px;
+                padding: 1.5rem 1rem;
+            }
+
+            .countdown-value {
+                font-size: 2.2rem;
+            }
+
+            .date-inputs {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+            }
+
+            .modal-nav, .close-image-modal {
+                width: 40px;
+                height: 40px;
+                font-size: 30px;
+            }
+
+            .modal-prev {
+                left: 15px;
+            }
+
+            .modal-next {
+                right: 15px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .photo-gallery {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head><body>
+    <!-- Login Page -->
+    <div id="login-page">
+        <div class="hearts-container" id="hearts-container"></div>
+        <div class="login-container">
+            <h1 class="login-title cursive-font">Our Special Day</h1>
+            <p class="login-subtitle"><i class="fas fa-heart ms-2"></i> Enter the date that started it all <i class="fas fa-heart ms-2"></i></p>
+            <form id="login-form">
+                <div class="date-inputs">
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="day" placeholder="Day" min="1" max="31" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="month" placeholder="Month" min="1" max="12" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="number" class="form-control" id="year" placeholder="Year" min="1900" max="2024" required>
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-login">Enter to See My Love Letter <i class="fas fa-heart ms-2"></i></button>
+            </form>
+            <div id="login-error" class="alert alert-danger mt-3 text-center" style="display: none;">
+                <i class="fas fa-exclamation-circle me-2"></i> That's not our special date. Try again, my love.
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Page -->
+    <div id="main-page">
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+            <div class="container">
+                <a class="navbar-brand cursive-font" href="#">Our Love Story</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#home">Home</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link" href="#countdown">Our Journey</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#memories">Our Memories</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#reasons">Why I Love You</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero-section">
+            <div class="container">
+                <h1 class="cursive-font anniversary-date" id="anniversary-display"></h1>
+                <p class="love-message cursive-font" id="love-message"></p>
+                <button class="btn btn-outline-primary btn-lg" id="surprise-btn">
+                    <i class="fas fa-gift me-2"></i> Click for a 💕Love Letter💕 !!!🫣
+                </button>
+            </div>
+        </section><!-- Countdown Section -->
+        <section id="countdown" class="countdown-section">
+            <div class="container">
+                <h2 class="text-center mb-5 cursive-font" style="font-size: 2.8rem;">Our Journey Together</h2>
+                <p class="text-center mb-4" style="font-size: 1.2rem;">Every second with you is precious. Here's to many more anniversaries together!</p>
+                <div class="countdown-container">
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="years">0</div>
+                        <div class="countdown-label">Years</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="months">0</div>
+                        <div class="countdown-label">Months</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="days">0</div>
+                        <div class="countdown-label">Days</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="hours">0</div>
+                        <div class="countdown-label">Hours</div>
+                    </div>
+                    <div class="countdown-item">
+                        <div class="countdown-value" id="minutes">0</div>
+                        <div class="countdown-label">Minutes</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Memories Section -->
+        <section id="memories" class="memory-section">
+            <div class="container">
+                <div class="gallery-header">
+                    <h2 class="cursive-font" style="font-size: 2.8rem;">Our Beautiful Memories</h2>
+                    <p class="mt-3" style="font-size: 1.2rem;">Every moment with you becomes a precious memory I cherish forever.</p>
+                </div>
+
+                <div class="gallery-controls">
+                    <button class="filter-btn active" data-filter="all">All Memories</button>
+                    <button class="filter-btn" data-filter="travel">Travel Moments</button>
+                    <button class="filter-btn" data-filter="cartoon">Cartoon</button>
+                    <button class="filter-btn" data-filter="eat">Eating Moments</button>
+                    <button class="filter-btn" data-filter="sleep">Sleeping Moments</button>
+                </div>
+
+                <div class="photo-gallery" id="photo-gallery">
+                    <!-- Photos will be loaded here by JavaScript -->
+                </div>
+
+                <div class="load-more-container">
+                    <button class="btn btn-load-more" id="load-more">
+                        <i class="fas fa-plus me-2"></i>Load More Memories
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reasons Section -->
+        <section id="reasons" class="card-section">
+            <div class="container">
+                <h2 class="text-center mb-5 cursive-font" style="font-size: 2.8rem;">Why I Love You</h2>
+                <div class="row">
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-smile"></i>
+                            </div>
+                            <h4 class="card-title">Your Smile</h4>
+                            <p class="card-text">Your smile lights up my world and makes every day brighter. It's the first thing I think about when I wake up and the last thing I see before I sleep.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h4 class="card-title">Your Kind Heart</h4>
+                            <p class="card-text">You have the most beautiful heart. Your compassion and care for others inspires me every single day to be a better person.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-laugh"></i>
+                            </div>
+                            <h4 class="card-title">Your Sense of Humor</h4>
+                            <p class="card-text">You make me laugh even on my worst days. Your humor is one of the many reasons I fell in love with you and continue to fall more each day.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <h4 class="card-title">Your Support</h4>
+                            <p class="card-text">You're always there for me, through good times and bad. Your unwavering support means everything to me and gives me strength.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <h4 class="card-title">Your Uniqueness</h4>
+                            <p class="card-text">You're unlike anyone I've ever met. Your quirks and uniqueness make you perfectly you, and I love every single part of who you are.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-4">
+                        <div class="love-card text-center">
+                            <div class="card-icon">
+                                <i class="fas fa-infinity"></i>
+                            </div>
+                            <h4 class="card-title">Our Connection</h4>
+                            <p class="card-text">We have a connection that goes beyond words. It's like our souls recognized each other from the very beginning and knew we were meant to be.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section><!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <p class="cursive-font" style="font-size: 1.5rem;">Made with <i class="fas fa-heart text-danger mx-1"></i> for the most amazing person in my life</p>
+                <p style="font-size: 1.1rem;">Today, tomorrow, and forever - you have my heart.</p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Custom Modal -->
+    <div class="custom-modal" id="custom-modal">
+        <div class="modal-content">
+            <div class="modal-heart">
+                <i class="fas fa-heart"></i>
+            </div>
+            <h4 class="modal-title"> my love </h4>
+            <p class="modal-message">
+                Happy Anniversary Par, my Sweet heart💗! <br>I can't wait to spend forever with you.
+            </p>
+            <button class="btn btn-close-modal" id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <!-- Image Modal -->
+    <div class="image-modal" id="image-modal">
+        <span class="close-image-modal" onclick="closeImageModal()">&times;</span>
+        <span class="modal-nav modal-prev" onclick="changeImage(-1)">&#10094;</span>
+        <span class="modal-nav modal-next" onclick="changeImage(1)">&#10095;</span>
+        <img class="image-modal-content" id="expanded-img">
+        <div class="image-modal-info">
+            <div class="image-modal-title" id="modal-image-title">Memory Title</div>
+            <div class="image-modal-date" id="modal-image-date">Date</div>
+        </div>
+    </div>
+
+    <!-- Floating Hearts Container -->
+    <div class="floating-hearts" id="floating-hearts"></div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script><script>
+        // Set your anniversary date here (format: YYYY-MM-DD)
+        const anniversaryDate = '2021-10-04'; //
+
+        // Memory data - REPLACE WITH YOUR ACTUAL PHOTOS AND CAPTIONS
+        const memoryData = [
+            // First 12 photos (initially loaded)
+            { id: 1, title: "I LOVE YOU 😘😘😘😘😘😘😘", date: "Special Date:Oct 04, 2021", category: "eat", url: "Love1.jpg" },
+            { id: 2, title: "I LOVE YOU 🚆", date: "Special Date:Oct 04, 2021", category: "sleep", url: "Love1.jpg" },
+
+        ];
+
+        // Gallery state
+        let currentFilter = 'all';
+        let displayedCount = 12;
+        let currentImageIndex = 0;
+        let filteredMemories = [];
+
+        // Create floating hearts for login page
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            for (let i = 0; i < 15; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.width = heart.style.height = (Math.random() * 20 + 10) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Create floating hearts for main page
+        function createFloatingHearts() {
+            const container = document.getElementById('floating-hearts');
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('floating-heart');
+                heart.innerHTML = '❤';
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDelay = Math.random() * 5 + 's';
+                heart.style.fontSize = (Math.random() * 20 + 15) + 'px';
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize gallery
+        function initGallery() {
+            filteredMemories = memoryData;
+            renderGallery();
+            setupFilterButtons();
+            setupLoadMore();
+        }
+
+        // Render gallery based on current filter and displayed count
+        function renderGallery() {
+            const gallery = document.getElementById('photo-gallery');
+            gallery.innerHTML = '';
+
+            const memoriesToShow = filteredMemories.slice(0, displayedCount);
+
+            memoriesToShow.forEach(memory => {
+                const photoElement = document.createElement('div');
+                photoElement.className = 'memory-photo';
+                photoElement.style.backgroundImage = `url('${memory.url}')`;
+                photoElement.setAttribute('onclick', `openImageModal(${memory.id})`);
+
+                photoElement.innerHTML = `
+                    <div class="photo-caption">
+                        <div class="photo-title">${memory.title}</div>
+                        <div class="photo-date">${memory.date}</div>
+                    </div>
+                `;
+
+                gallery.appendChild(photoElement);
+            });
+
+            // Show/hide load more button
+            const loadMoreBtn = document.getElementById('load-more');
+            if (displayedCount >= filteredMemories.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-block';
+            }
+        }
+
+        // Setup filter buttons
+        function setupFilterButtons() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Update active button
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+
+                    // Update filter
+                    currentFilter = this.getAttribute('data-filter');
+
+                    // Filter memories
+                    if (currentFilter === 'all') {
+                        filteredMemories = memoryData;
+                    } else {
+                        filteredMemories = memoryData.filter(memory => memory.category === currentFilter);
+                    }
+
+                    // Reset displayed count and render
+                    displayedCount = 12;
+                    renderGallery();
+                });
+            });
+        }// Setup load more button
+        function setupLoadMore() {
+            const loadMoreBtn = document.getElementById('load-more');
+
+            loadMoreBtn.addEventListener('click', function() {
+                displayedCount += 12;
+                renderGallery();
+            });
+        }
+
+        // Open image modal
+        function openImageModal(id) {
+            currentImageIndex = filteredMemories.findIndex(memory => memory.id === id);
+            if (currentImageIndex === -1) return;
+
+            const memory = filteredMemories[currentImageIndex];
+            document.getElementById('expanded-img').src = memory.url;
+            document.getElementById('modal-image-title').textContent = memory.title;
+            document.getElementById('modal-image-date').textContent = memory.date;
+            document.getElementById('image-modal').style.display = 'flex';
+        }
+
+        // Close image modal
+        function closeImageModal() {
+            document.getElementById('image-modal').style.display = 'none';
+        }
+
+        // Change image in modal
+        function changeImage(direction) {
+            currentImageIndex += direction;
+
+            // Handle bounds
+            if (currentImageIndex < 0) {
+                currentImageIndex = filteredMemories.length - 1;
+            } else if (currentImageIndex >= filteredMemories.length) {
+                currentImageIndex = 0;
+            }
+
+            const memory = filteredMemories[currentImageIndex];
+            document.getElementById('expanded-img').src = memory.url;
+            document.getElementById('modal-image-title').textContent = memory.title;
+            document.getElementById('modal-image-date').textContent = memory.date;
+        }
+
+        // Login form submission
+        document.getElementById('login-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const day = document.getElementById('day').value;
+            const month = document.getElementById('month').value;
+            const year = document.getElementById('year').value;
+
+            // Format the date to match the anniversaryDate format
+            const formattedDate = `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+
+            if (formattedDate === anniversaryDate) {
+                // Successful login
+                document.getElementById('login-page').style.display = 'none';
+                document.getElementById('main-page').style.display = 'block';
+
+                // Display anniversary information
+                const anniversaryDisplay = document.getElementById('anniversary-display');
+                const loveMessage = document.getElementById('love-message');
+
+                // Calculate years together
+                const today = new Date();
+                const anniversary = new Date(anniversaryDate);
+                const yearsTogether = today.getFullYear() - anniversary.getFullYear();
+                const monthTogether =today.getMonth() - anniversary.getMonth();
+                anniversaryDisplay.textContent = yearsTogether+'   Years  ' +monthTogether + '  Months';
+                loveMessage.textContent = `Since ${anniversary.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
+
+                // Start countdown
+                startCountdown();
+
+                // Initialize gallery
+                initGallery();
+
+                // Create floating hearts for main page
+                createFloatingHearts();
+            } else {
+                // Show error message
+                document.getElementById('login-error').style.display = 'block';
+            }
+        });
+
+        // Countdown timer - shows time since anniversary
+        function startCountdown() {
+            const anniversary = new Date(anniversaryDate);
+            const today = new Date();
+
+            function updateCountdown() {
+                const now = new Date();
+
+                // Calculate time difference
+                let years = now.getFullYear() - anniversary.getFullYear();
+                let months = now.getMonth() - anniversary.getMonth();
+                let days = now.getDate() - anniversary.getDate();
+
+                // Adjust for negative days
+                if (days < 0) {
+                    months--;
+                    // Get days in previous month
+                    const prevMonth = new Date(now.getFullYear(), now.getMonth(), 0);
+                    days += prevMonth.getDate();
+                }
+
+                // Adjust for negative months
+                if (months < 0) {
+                    years--;
+                    months += 12;
+                }
+
+                // Calculate hours, minutes
+                const hours = now.getHours();
+                const minutes = now.getMinutes();
+
+                // Animate the numbers
+                animateValue('years', 0, years, 1500);
+                animateValue('months', 0, months, 1500);
+                animateValue('days', 0, days, 1500);
+                animateValue('hours', 0, hours, 1500);
+                animateValue('minutes', 0, minutes, 1500);
+            }
+
+            // Function to animate counting up
+            function animateValue(id, start, end, duration) {
+                const obj = document.getElementById(id);
+                let startTimestamp = null;
+                const step = (timestamp) => {
+                    if (!startTimestamp) startTimestamp = timestamp;
+                    const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                    const value = Math.floor(progress * (end - start) + start);
+                    obj.innerHTML = value;
+                    if (progress < 1) {
+                        window.requestAnimationFrame(step);
+                    }
+                };
+                window.requestAnimationFrame(step);
+            }updateCountdown();
+            setInterval(updateCountdown, 60000); // Update every minute
+        }
+
+        // Custom modal for surprise message
+        document.getElementById('surprise-btn').addEventListener('click', function() {
+            document.getElementById('custom-modal').style.display = 'flex';
+        });
+
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('custom-modal').style.display = 'none';
+        });
+
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('custom-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+            }
+
+            const imageModal = document.getElementById('image-modal');
+            if (event.target === imageModal) {
+                closeImageModal();
+            }
+        });
+
+        // Keyboard navigation for image modal
+        document.addEventListener('keydown', function(event) {
+            const imageModal = document.getElementById('image-modal');
+            if (imageModal.style.display === 'flex') {
+                if (event.key === 'Escape') {
+                    closeImageModal();
+                } else if (event.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1);
+                }
+            }
+        });
+
+        // Initialize the page
+        window.onload = function() {
+            createHearts();
+        };
+    </script>
 </body>
 </html>

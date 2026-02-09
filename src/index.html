@@ -1043,9 +1043,27 @@
                 // Calculate years together
                 const today = new Date();
                 const anniversary = new Date(anniversaryDate);
-                const yearsTogether = today.getFullYear() - anniversary.getFullYear();
-                const monthTogether =today.getMonth() - anniversary.getMonth();
-                anniversaryDisplay.textContent = yearsTogether+'   Years  ' +monthTogether + '  Months';
+                console.log("DATE For The Year",anniversary);
+                let yearsTogether = today.getFullYear() - anniversary.getFullYear();
+
+                let monthsTogether = today.getMonth() - anniversary.getMonth();
+
+                // အကယ်၍ လက်ရှိလက Anniversary လထက် မရောက်သေးရင် သို့မဟုတ်
+                 // လတူနေပေမဲ့ ရက်စွဲမပြည့်သေးရင် (ဥပမာ Anniversary က ၂၈ ရက်၊ ဒီနေ့က ၉ ရက်ဆိုရင်)
+                  if (monthsTogether < 0 || (monthsTogether === 0 && today.getDate() < anniversary.getDate())) {
+                    yearsTogether--; // နှစ်ကို တစ်နှစ် လျှော့ရပါမယ်
+                     monthsTogether += 12; // လကို ၁၂ လ ပေါင်းထည့်ပေးရပါမယ်
+                  }
+
+// ရက်စွဲအရ လကို ပြန်ညှိဖို့ (ဥပမာ- ၁ လ မပြည့်သေးရင်)
+                if (today.getDate() < anniversary.getDate())
+                {
+                     monthsTogether--;
+                      }
+                console.log("DATE For The Year",yearsTogether);
+                console.log("DATE For The Months",monthsTogether);
+
+                anniversaryDisplay.textContent = yearsTogether+'   Years  ' +monthsTogether + '  Months';
                 loveMessage.textContent = `Since ${anniversary.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`;
 
                 // Start countdown
